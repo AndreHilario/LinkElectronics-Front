@@ -1,5 +1,5 @@
 
-import logo from "./logo512.png"
+import { Link } from "react-router-dom";
 import { ProductsContainer, ListItemContainer, Line } from "./styledMenu";
 
 
@@ -10,31 +10,51 @@ export default function MenuHomePage() {
 
         <ProductsContainer>
             <h1>Seja bem-vindo(a), Fulano!</h1>
-            <div>
-                <ListItemContainer>
-                    <div>
-                        <img src={logo} alt="Imagem do produto" />
-                    </div>
-                    <Line></Line>
-                    <span>
-                        <h3>Iphone 14 Pro Max</h3>
-                        <p>R$ 1.500,00</p>
-
-                    </span>
-                </ListItemContainer>
-            </div>
-            <ListItemContainer>
+            <Link to={`/products/:id `}>
                 <div>
-                    <img src={logo} alt="Imagem do produto" />
+                    <ListItemContainer>
+                        <div>
+                            <img src="https://imgs.casasbahia.com.br/15341376/3xg.jpg" alt="Imagem do produto" />
+                        </div>
+                        <Line></Line>
+                        <span>
+                            <h3>Iphone 14 Pro Max</h3>
+                            <p>R$ 1.500,00</p>
+
+                        </span>
+                    </ListItemContainer>
                 </div>
-                <Line></Line>
-                <span>
-                    <h3>Televisão Samsung</h3>
-                    <p>R$ 1.500,00</p>
+            </Link>
+            <Link to={`/products/:id `}>
+                <div>
+                    <ListItemContainer>
+                        <div>
+                            <img src="https://imgs.casasbahia.com.br/15341376/3xg.jpg" alt="Imagem do produto" />
+                        </div>
+                        <Line></Line>
+                        <span>
+                            <h3>Iphone 14 Pro Max</h3>
+                            <p>R$ 1.500,00</p>
+                            <span>Celular apple</span>
+                        </span>
+                    </ListItemContainer>
+                </div>
+            </Link>
+            <Link to={`/products/:id `}>
+                <div>
+                    <ListItemContainer>
+                        <div>
+                            <img src="https://imgs.casasbahia.com.br/15341376/3xg.jpg" alt="Imagem do produto" />
+                        </div>
+                        <Line></Line>
+                        <span>
+                            <h3>Iphone 14 Pro Max</h3>
+                            <p>R$ 1.500,00</p>
 
-                </span>
-            </ListItemContainer>
-
+                        </span>
+                    </ListItemContainer>
+                </div>
+            </Link>
         </ProductsContainer>
 
     )

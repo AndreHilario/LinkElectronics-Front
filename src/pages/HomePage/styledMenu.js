@@ -22,24 +22,26 @@ export const ProductsContainer = styled.div`
 export const ListItemContainer = styled.li`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #fff;
     color: #000000;
-    border: 2px solid white;
+    border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 100px;
+    height: 300px;
     img {
       width: 150px;
     }
     h3 {
       color: #000000;
-      font-size: 25px;
-      margin-top: 15px;
+      font-size: 1.5rem;
       margin-bottom: 15px;
     }
     p {
-      font-size: 25px;
+      margin-top: 30px;
+      font-size: 20px;
+      color: red;
     }
 `;
 
