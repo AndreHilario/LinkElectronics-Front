@@ -12,6 +12,6 @@ export default function LoginPage (){
 
 const LoginContainer = styled.div`
 
-
+background-color: black;
 
 `
