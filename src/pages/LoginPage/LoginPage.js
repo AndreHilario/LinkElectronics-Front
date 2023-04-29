@@ -1,20 +1,23 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
+
 
 
 export default function LoginPage (){
 
     const [form, setForm] = useState({email: "", password: ""})
+    const navigate = useNavigate()
 
     function login (e){
 
         e.preventDefault()
 
-        axios.post(`${process.env.REACT_APP_API_URL}/login`, form)
-        .then((res) => alert("oi"))
-        .catch((err) => console.log(err.response.data))
+        axios.post("http://localhost:5000/login", form)
+    
+        .then((res) => navigate("/home"))
+        .catch((err) => console.log(err))
 
     }
 
