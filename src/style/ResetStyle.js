@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const ResetStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -17,6 +17,7 @@ const ResetStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		border: 0;
+		box-sizing: border-box;
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
@@ -44,6 +45,6 @@ const ResetStyle = createGlobalStyle`
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-`;
+`
 
-export default ResetStyle;
+export default ResetStyle
