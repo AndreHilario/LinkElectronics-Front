@@ -12,9 +12,9 @@ export default function App() {
     <PagesContainer>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/singup" element={<SingUp />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/products/:id" element={<ProductPage />} />
         </Routes>
       </BrowserRouter>
