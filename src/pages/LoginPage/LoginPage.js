@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import axios from 'axios'
 import AuthContext from '../../contexts/CartContext'
 
@@ -15,13 +15,13 @@ export default function LoginPage() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/login`, form)
       .then(res => {
-        // setToken(res.data.token)
-        // setUserName(res.data.userName)
-        // localStorage.setItem('token', res.data.token)
-        // localStorage.setItem('userName', res.data.userName)
+        setToken(res.data.token)
+        setUserName(res.data.userName)
+        localStorage.setItem('token', res.data.token)
+        localStorage.setItem('userName', res.data.userName)
         navigate('/checkout')
       })
-      .catch(err => console.log(err.response.data))
+      .catch(err => alert(err.response.data))
   }
 
   return (
@@ -87,5 +87,15 @@ const Login = styled.section`
     -webkit-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 1);
     -moz-box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 1);
     box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 1);
+  }
+  button {
+    background-color: #fff;
+    border: 1px solid green;
+    border-radius: 10px;
+    margin-top: 40px;
+    width: calc(100vw - 90px);
+    height: 50px;
+    font-size: 30px;
+    color: green;
   }
 `

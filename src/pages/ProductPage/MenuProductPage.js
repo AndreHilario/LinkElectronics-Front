@@ -39,23 +39,6 @@ export default function MenuProductPage() {
     setGetModel(e.target.value)
   }
 
-  //   function sendRequest(e, id) {
-  //     e.preventDefault()
-  //     const data = { amount, voltage }
-
-  //     setDisabled(true)
-  //     axios
-  //       .post(`${process.env.REACT_APP_API_URL}/shopping/${id}`, data)
-  //       .then(() => {
-  //         setDisabled(false)
-  //         navigate('/cart')
-  //       })
-  //       .catch(err => {
-  //         alert(err.response.data)
-  //         setDisabled(false)
-  //       })
-  //   }
-
   function sendProductCart(e) {
     e.preventDefault()
     const productCart = {
