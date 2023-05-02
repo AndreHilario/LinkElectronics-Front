@@ -1,19 +1,19 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import axios from "axios"
 
 export default function SingUp (){
 
     const [form, setForm] = useState({name: "", email: "", password: "", state: "", city: "", road: ""})
+    const navigate = useNavigate()
 
  function newUser (e){
     e.preventDefault()
 
-    axios.post(`${process.env.REACT_APP_API_URL}/sing-up`, form)
-    .then((res) => alert('oi'))
+    axios.post("http://localhost:5000/sing-up", form)
+    .then((res) => navigate("/"))
     .catch((err) => console.log(err.response.data))
-
  }
 
 
