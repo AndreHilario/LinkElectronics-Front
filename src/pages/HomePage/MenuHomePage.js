@@ -1,61 +1,38 @@
-
-import { Link } from "react-router-dom";
-import { ProductsContainer, ListItemContainer, Line } from "./styledMenu";
-
-
+import { Link } from 'react-router-dom'
+import { ProductsContainer, ListItemContainer, Line } from './styledMenu'
+import AuthContext from '../../contexts/CartContext'
+import { useContext, useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function MenuHomePage() {
+  const { userName } = useContext(AuthContext)
+  const [products, setProducts] = useState([])
 
-    return (
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/`)
+      .then(res => setProducts(res.data))
+  }, [])
 
-        <ProductsContainer>
-            <h1>Seja bem-vindo(a), Fulano!</h1>
-            <Link to={`/products/:id `}>
+  return (
+    <ProductsContainer>
+      <h1>Seja bem-vindo(a), {userName}!</h1>
+      {setProducts
+        ? products.map(p => (
+            <Link to={`/products/${p._id}`} key={p._id}>
+              <ListItemContainer>
                 <div>
-                    <ListItemContainer>
-                        <div>
-                            <img src="https://imgs.casasbahia.com.br/15341376/3xg.jpg" alt="Imagem do produto" />
-                        </div>
-                        <Line></Line>
-                        <span>
-                            <h3>Iphone 14 Pro Max</h3>
-                            <p>R$ 1.500,00</p>
-
-                        </span>
-                    </ListItemContainer>
+                  <img src={p.urlImage} alt="" />
                 </div>
+                <Line></Line>
+                <span>
+                  <h3>{p.name}</h3>
+                  <p>R$ {p.price},00</p>
+                </span>
+              </ListItemContainer>
             </Link>
-            <Link to={`/products/:id `}>
-                <div>
-                    <ListItemContainer>
-                        <div>
-                            <img src="https://imgs.casasbahia.com.br/15341376/3xg.jpg" alt="Imagem do produto" />
-                        </div>
-                        <Line></Line>
-                        <span>
-                            <h3>Iphone 14 Pro Max</h3>
-                            <p>R$ 1.500,00</p>
-                            <span>Celular apple</span>
-                        </span>
-                    </ListItemContainer>
-                </div>
-            </Link>
-            <Link to={`/products/:id `}>
-                <div>
-                    <ListItemContainer>
-                        <div>
-                            <img src="https://imgs.casasbahia.com.br/15341376/3xg.jpg" alt="Imagem do produto" />
-                        </div>
-                        <Line></Line>
-                        <span>
-                            <h3>Iphone 14 Pro Max</h3>
-                            <p>R$ 1.500,00</p>
-
-                        </span>
-                    </ListItemContainer>
-                </div>
-            </Link>
-        </ProductsContainer>
-
-    )
-};
+          ))
+        : '...carregando'}
+    </ProductsContainer>
+  )
+}
